@@ -88,6 +88,28 @@
             color: var(--gold);
         }
 
+        .nav-links a.campaign-link {
+            color: var(--gold);
+            position: relative;
+        }
+
+        .nav-links a.campaign-link::after {
+            content: '';
+            position: absolute;
+            top: -2px;
+            right: -8px;
+            width: 6px;
+            height: 6px;
+            background: var(--gold);
+            border-radius: 50%;
+            animation: pulse 1.5s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.2); }
+        }
+
         .lang-switch {
             background: transparent;
             border: 1px solid var(--gold);
@@ -104,6 +126,153 @@
         .lang-switch:hover {
             background: var(--gold);
             color: var(--dark-bg);
+        }
+
+        /* ========== Campaign Section ========== */
+        #campaign {
+            margin-top: 80px;
+            padding: 0;
+            max-width: 100%;
+            background: linear-gradient(135deg, #1a1508 0%, var(--dark-bg) 50%, #0d0a05 100%);
+            border-bottom: 2px solid var(--gold);
+        }
+
+        .campaign-header {
+            background: linear-gradient(90deg, var(--gold) 0%, var(--dark-gold) 100%);
+            padding: 0.8rem 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .campaign-badge {
+            background: var(--dark-bg);
+            color: var(--gold);
+            padding: 0.3rem 1rem;
+            font-size: 0.75rem;
+            font-weight: 700;
+            letter-spacing: 0.15em;
+            text-transform: uppercase;
+        }
+
+        .campaign-header-title {
+            font-size: 1rem;
+            color: var(--dark-bg);
+            letter-spacing: 0.1em;
+            font-weight: 500;
+        }
+
+        .campaign-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 3rem;
+        }
+
+        .campaign-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .campaign-card {
+            background: linear-gradient(145deg, rgba(26, 26, 26, 0.95) 0%, rgba(42, 42, 42, 0.9) 100%);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .campaign-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
+            transition: all 0.4s ease;
+        }
+
+        .campaign-card-header {
+            padding: 1.5rem 1.5rem 1rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+        }
+
+        .campaign-type {
+            background: var(--gold);
+            color: var(--dark-bg);
+            padding: 0.25rem 0.75rem;
+            font-size: 0.7rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+        }
+
+        .campaign-period {
+            font-size: 0.8rem;
+            color: var(--text-gold);
+            letter-spacing: 0.05em;
+        }
+
+        .campaign-card-body {
+            padding: 0 1.5rem 1.5rem;
+        }
+
+        .campaign-card h3 {
+            font-size: 1.3rem;
+            color: var(--gold);
+            margin-bottom: 0.8rem;
+            letter-spacing: 0.05em;
+            font-weight: 500;
+            line-height: 1.4;
+        }
+
+        .campaign-card p {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            margin-bottom: 1rem;
+        }
+
+        .campaign-highlight {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(212, 175, 55, 0.15);
+            border: 1px solid rgba(212, 175, 55, 0.3);
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            color: var(--gold);
+            font-weight: 600;
+            letter-spacing: 0.05em;
+        }
+
+        .campaign-cta {
+            display: block;
+            background: linear-gradient(135deg, var(--gold) 0%, var(--dark-gold) 100%);
+            color: var(--dark-bg);
+            text-align: center;
+            padding: 1rem;
+            font-size: 0.9rem;
+            font-weight: 500;
+            letter-spacing: 0.1em;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .campaign-cta:hover {
+            opacity: 0.9;
+        }
+
+        .campaign-footer {
+            text-align: center;
+            padding: 1.5rem;
+            border-top: 1px solid rgba(212, 175, 55, 0.2);
+        }
+
+        .campaign-footer p {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.6);
         }
 
         /* Hero Section */
@@ -422,11 +591,17 @@
             letter-spacing: 0.08em;
         }
 
-        /* Language Toggle */
-        [data-lang="ja"] { display: block; }
-        [data-lang="zh"] { display: none; }
-        body.zh [data-lang="ja"] { display: none; }
-        body.zh [data-lang="zh"] { display: block; }
+        /* Language Toggle - 关键修复 */
+        .lang-ja { display: block; }
+        .lang-zh { display: none; }
+        body.zh .lang-ja { display: none; }
+        body.zh .lang-zh { display: block; }
+
+        /* inline elements */
+        span.lang-ja { display: inline; }
+        span.lang-zh { display: none; }
+        body.zh span.lang-ja { display: none; }
+        body.zh span.lang-zh { display: inline; }
 
         /* Responsive */
         @media (max-width: 768px) {
@@ -471,6 +646,23 @@
             .contact-container {
                 padding: 2.5rem 1.5rem;
             }
+
+            #campaign {
+                margin-top: 140px;
+            }
+
+            .campaign-content {
+                padding: 2rem 1.5rem;
+            }
+
+            .campaign-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .campaign-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
         }
 
         /* Scroll Animation */
@@ -492,36 +684,75 @@
         <div class="nav-container">
             <a href="#" class="logo">LIVETTA</a>
             <ul class="nav-links">
-                <li><a href="#about" data-lang="ja">会社概要</a></li>
-                <li><a href="#about" data-lang="zh">公司简介</a></li>
-                <li><a href="#services" data-lang="ja">サービス</a></li>
-                <li><a href="#services" data-lang="zh">服务内容</a></li>
-                <li><a href="#strengths" data-lang="ja">強み</a></li>
-                <li><a href="#strengths" data-lang="zh">优势特点</a></li>
-                <li><a href="#target" data-lang="ja">対象企業</a></li>
-                <li><a href="#target" data-lang="zh">服务对象</a></li>
-                <li><a href="#contact" data-lang="ja">お問い合わせ</a></li>
-                <li><a href="#contact" data-lang="zh">联系我们</a></li>
+                <li><a href="#campaign" class="campaign-link lang-ja">キャンペーン</a><a href="#campaign" class="campaign-link lang-zh">近期活动</a></li>
+                <li><a href="#about" class="lang-ja">会社概要</a><a href="#about" class="lang-zh">公司简介</a></li>
+                <li><a href="#services" class="lang-ja">サービス</a><a href="#services" class="lang-zh">服务内容</a></li>
+                <li><a href="#strengths" class="lang-ja">強み</a><a href="#strengths" class="lang-zh">优势特点</a></li>
+                <li><a href="#target" class="lang-ja">対象企業</a><a href="#target" class="lang-zh">服务对象</a></li>
+                <li><a href="#contact" class="lang-ja">お問い合わせ</a><a href="#contact" class="lang-zh">联系我们</a></li>
                 <li><button class="lang-switch" onclick="toggleLanguage()">
-                    <span data-lang="ja">中文</span>
-                    <span data-lang="zh">日本語</span>
+                    <span class="lang-ja">中文</span>
+                    <span class="lang-zh">日本語</span>
                 </button></li>
             </ul>
         </div>
     </nav>
 
+    <!-- Campaign Section -->
+    <section id="campaign">
+        <div class="campaign-header">
+            <span class="campaign-badge lang-ja">NEW</span>
+            <span class="campaign-badge lang-zh">最新</span>
+            <span class="campaign-header-title lang-ja">最新のキャンペーン</span>
+            <span class="campaign-header-title lang-zh">最新活动资讯</span>
+        </div>
+        
+        <div class="campaign-content">
+            <div class="campaign-grid">
+                <div class="campaign-card">
+                    <div class="campaign-card-header">
+                        <span class="campaign-type lang-ja">先着100名限定</span>
+                        <span class="campaign-type lang-zh">限前100名</span>
+                        <span class="campaign-period">2026.03.16 - 2026.03.31</span>
+                    </div>
+                    <div class="campaign-card-body">
+                        <h3 class="lang-ja">SNS集客促進キャンペーン</h3>
+                        <h3 class="lang-zh">SNS集客促进活动</h3>
+                        <p class="lang-ja">
+                            当社の広告・SNSプロモーション経由で提携事業者の旅行関連サービスをご予約いただいた旅行者様に、デジタルギフトをプレゼント。
+                        </p>
+                        <p class="lang-zh">
+                            通过本公司广告及SNS推广预订合作商旅游服务的旅客，可获赠数字礼品。
+                        </p>
+                        <div class="campaign-highlight">
+                            <span>✦</span>
+                            <span class="lang-ja">予約50万円ごとに5万円相当ギフト</span>
+                            <span class="lang-zh">每预订50万日元赠5万日元礼品</span>
+                        </div>
+                        <a href="#contact" class="campaign-cta lang-ja">詳細を問い合わせる →</a>
+                        <a href="#contact" class="campaign-cta lang-zh">咨询详情 →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="campaign-footer">
+            <p class="lang-ja">※ キャンペーン内容は予告なく変更・終了する場合がございます</p>
+            <p class="lang-zh">※ 活动内容可能会在不另行通知的情况下变更或结束</p>
+        </div>
+    </section>
+
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-content">
-            <p class="hero-subtitle" data-lang="ja">MARKETING SOLUTIONS FOR TRAVEL INDUSTRY</p>
-            <p class="hero-subtitle" data-lang="zh">MARKETING SOLUTIONS FOR TRAVEL INDUSTRY</p>
+            <p class="hero-subtitle">MARKETING SOLUTIONS FOR TRAVEL INDUSTRY</p>
             <h1>LIVETTA</h1>
             <div class="divider"></div>
-            <p class="hero-tagline" data-lang="ja">
+            <p class="hero-tagline lang-ja">
                 旅行・観光業界向け<br>
                 広告マーケティング支援サービス
             </p>
-            <p class="hero-tagline" data-lang="zh">
+            <p class="hero-tagline lang-zh">
                 面向旅游观光行业的<br>
                 广告营销支援服务
             </p>
@@ -531,28 +762,28 @@
     <!-- About Section -->
     <section id="about">
         <p class="section-subtitle">ABOUT US</p>
-        <h2 data-lang="ja">会社概要</h2>
-        <h2 data-lang="zh">公司简介</h2>
+        <h2 class="lang-ja">会社概要</h2>
+        <h2 class="lang-zh">公司简介</h2>
         
         <div class="about-content fade-in">
-            <p data-lang="ja">
+            <p class="lang-ja">
                 リヴェッタ株式会社は、日本および中国市場を対象とした旅行・観光関連事業者向けの広告・マーケティング支援サービスを提供しております。
             </p>
-            <p data-lang="zh">
+            <p class="lang-zh">
                 LIVETTA株式会社为面向日本及中国市场的旅游观光相关企业，提供广告及营销支援服务。
             </p>
             
-            <p data-lang="ja">
+            <p class="lang-ja">
                 宿泊施設、旅行商品、観光サービス等を取り扱う事業者に対し、ターゲット顧客に適したプロモーション企画および情報発信支援を行っています。
             </p>
-            <p data-lang="zh">
+            <p class="lang-zh">
                 我们为经营住宿设施、旅游产品、观光服务等的企业，提供针对目标客户的推广策划及信息传播支援。
             </p>
             
-            <p data-lang="ja">
+            <p class="lang-ja">
                 代表者が有する資本投資および事業開発の経験を活かし、事業者視点に立った実務的なマーケティング提案を実現いたします。
             </p>
-            <p data-lang="zh">
+            <p class="lang-zh">
                 依托代表人在资本投资及业务开发方面的丰富经验，我们能够站在企业视角，提供切实可行的营销方案。
             </p>
         </div>
@@ -561,54 +792,54 @@
     <!-- Services Section -->
     <section id="services">
         <p class="section-subtitle">SERVICES</p>
-        <h2 data-lang="ja">サービス内容</h2>
-        <h2 data-lang="zh">服务内容</h2>
+        <h2 class="lang-ja">サービス内容</h2>
+        <h2 class="lang-zh">服务内容</h2>
         
         <div class="services-grid">
             <div class="service-card fade-in">
                 <div class="service-icon">📊</div>
-                <h3 data-lang="ja">プロモーション企画立案</h3>
-                <h3 data-lang="zh">推广策划方案</h3>
-                <p data-lang="ja">
+                <h3 class="lang-ja">プロモーション企画立案</h3>
+                <h3 class="lang-zh">推广策划方案</h3>
+                <p class="lang-ja">
                     旅行・観光関連商品のターゲット市場分析に基づき、効果的なプロモーション戦略を企画・立案いたします。
                 </p>
-                <p data-lang="zh">
+                <p class="lang-zh">
                     基于旅游观光相关产品的目标市场分析，策划并制定有效的推广战略。
                 </p>
             </div>
             
             <div class="service-card fade-in">
                 <div class="service-icon">✍️</div>
-                <h3 data-lang="ja">広告コンテンツ制作支援</h3>
-                <h3 data-lang="zh">广告内容制作支援</h3>
-                <p data-lang="ja">
+                <h3 class="lang-ja">広告コンテンツ制作支援</h3>
+                <h3 class="lang-zh">广告内容制作支援</h3>
+                <p class="lang-ja">
                     紹介文、画像、キャンペーン企画等の広告コンテンツ制作を包括的にサポートし、訴求力の高い情報発信を実現します。
                 </p>
-                <p data-lang="zh">
+                <p class="lang-zh">
                     全面支持宣传文案、图片、活动策划等广告内容的制作，实现高效的信息传播。
                 </p>
             </div>
             
             <div class="service-card fade-in">
                 <div class="service-icon">🌏</div>
-                <h3 data-lang="ja">マーケティング施策設計</h3>
-                <h3 data-lang="zh">营销策略设计</h3>
-                <p data-lang="ja">
+                <h3 class="lang-ja">マーケティング施策設計</h3>
+                <h3 class="lang-zh">营销策略设计</h3>
+                <p class="lang-ja">
                     日本および中国市場の特性を踏まえた、クロスボーダー対応のマーケティング施策を設計・提案いたします。
                 </p>
-                <p data-lang="zh">
+                <p class="lang-zh">
                     基于日本及中国市场特点，设计并提案跨境营销策略。
                 </p>
             </div>
             
             <div class="service-card fade-in">
                 <div class="service-icon">📈</div>
-                <h3 data-lang="ja">効果分析・改善提案</h3>
-                <h3 data-lang="zh">效果分析与改善建议</h3>
-                <p data-lang="ja">
+                <h3 class="lang-ja">効果分析・改善提案</h3>
+                <h3 class="lang-zh">效果分析与改善建议</h3>
+                <p class="lang-ja">
                     集客効果を定量的に分析し、継続的な改善提案を通じてマーケティングROIの最大化を支援します。
                 </p>
-                <p data-lang="zh">
+                <p class="lang-zh">
                     定量分析营销效果，通过持续改善建议，支持营销投资回报率最大化。
                 </p>
             </div>
@@ -618,42 +849,42 @@
     <!-- Strengths Section -->
     <section id="strengths">
         <p class="section-subtitle">OUR STRENGTHS</p>
-        <h2 data-lang="ja">私たちの強み</h2>
-        <h2 data-lang="zh">我们的优势</h2>
+        <h2 class="lang-ja">私たちの強み</h2>
+        <h2 class="lang-zh">我们的优势</h2>
         
         <div class="strengths-container">
             <div class="strength-item fade-in">
                 <div class="strength-number">01</div>
-                <h3 data-lang="ja">事業者視点の実務的提案</h3>
-                <h3 data-lang="zh">立足企业视角的实用方案</h3>
-                <p data-lang="ja">
+                <h3 class="lang-ja">事業者視点の実務的提案</h3>
+                <h3 class="lang-zh">立足企业视角的实用方案</h3>
+                <p class="lang-ja">
                     代表者が有する資本投資および事業開発の豊富な経験を活かし、単なる広告提案に留まらず、事業成長に直結する実務的なマーケティング戦略を提供します。
                 </p>
-                <p data-lang="zh">
+                <p class="lang-zh">
                     依托代表人在资本投资及业务开发方面的丰富经验，不仅提供广告方案，更提供直接促进业务增长的实用营销战略。
                 </p>
             </div>
             
             <div class="strength-item fade-in">
                 <div class="strength-number">02</div>
-                <h3 data-lang="ja">日中クロスボーダー対応力</h3>
-                <h3 data-lang="zh">日中跨境营销能力</h3>
-                <p data-lang="ja">
+                <h3 class="lang-ja">日中クロスボーダー対応力</h3>
+                <h3 class="lang-zh">日中跨境营销能力</h3>
+                <p class="lang-ja">
                     日本と中国、両市場の消費者動向や文化的背景を深く理解し、それぞれの市場特性に最適化されたプロモーション設計が可能です。
                 </p>
-                <p data-lang="zh">
+                <p class="lang-zh">
                     深入理解日本和中国两个市场的消费者动向及文化背景，能够提供针对各自市场特点优化的推广设计。
                 </p>
             </div>
             
             <div class="strength-item fade-in">
                 <div class="strength-number">03</div>
-                <h3 data-lang="ja">高付加価値型商品への対応</h3>
-                <h3 data-lang="zh">高附加值产品营销</h3>
-                <p data-lang="ja">
+                <h3 class="lang-ja">高付加価値型商品への対応</h3>
+                <h3 class="lang-zh">高附加值产品营销</h3>
+                <p class="lang-ja">
                     富裕層向けや高付加価値型の旅行商品にも対応可能な、品質重視の企画力と洗練されたプロモーション手法を提供します。
                 </p>
-                <p data-lang="zh">
+                <p class="lang-zh">
                     针对面向高净值人群的高附加值旅游产品，提供注重品质的策划能力和精致的推广手法。
                 </p>
             </div>
@@ -663,36 +894,36 @@
     <!-- Target Section -->
     <section id="target">
         <p class="section-subtitle">TARGET CLIENTS</p>
-        <h2 data-lang="ja">対象となる事業者様</h2>
-        <h2 data-lang="zh">服务对象</h2>
+        <h2 class="lang-ja">対象となる事業者様</h2>
+        <h2 class="lang-zh">服务对象</h2>
         
         <div class="target-grid">
             <div class="target-card fade-in">
-                <h3 data-lang="ja">宿泊施設事業者</h3>
-                <h3 data-lang="zh">住宿设施经营者</h3>
-                <p data-lang="ja">ホテル、旅館、民泊等の宿泊施設を運営される事業者様</p>
-                <p data-lang="zh">经营酒店、旅馆、民宿等住宿设施的企业</p>
+                <h3 class="lang-ja">宿泊施設事業者</h3>
+                <h3 class="lang-zh">住宿设施经营者</h3>
+                <p class="lang-ja">ホテル、旅館、民泊等の宿泊施設を運営される事業者様</p>
+                <p class="lang-zh">经营酒店、旅馆、民宿等住宿设施的企业</p>
             </div>
             
             <div class="target-card fade-in">
-                <h3 data-lang="ja">旅行商品販売事業者</h3>
-                <h3 data-lang="zh">旅游产品销售企业</h3>
-                <p data-lang="ja">ツアー商品、体験プログラム等を提供される旅行会社様</p>
-                <p data-lang="zh">提供旅游套餐、体验项目等的旅行社</p>
+                <h3 class="lang-ja">旅行商品販売事業者</h3>
+                <h3 class="lang-zh">旅游产品销售企业</h3>
+                <p class="lang-ja">ツアー商品、体験プログラム等を提供される旅行会社様</p>
+                <p class="lang-zh">提供旅游套餐、体验项目等的旅行社</p>
             </div>
             
             <div class="target-card fade-in">
-                <h3 data-lang="ja">観光サービス提供者</h3>
-                <h3 data-lang="zh">观光服务提供商</h3>
-                <p data-lang="ja">観光施設、アクティビティ、交通サービス等を運営される事業者様</p>
-                <p data-lang="zh">经营观光设施、活动项目、交通服务等的企业</p>
+                <h3 class="lang-ja">観光サービス提供者</h3>
+                <h3 class="lang-zh">观光服务提供商</h3>
+                <p class="lang-ja">観光施設、アクティビティ、交通サービス等を運営される事業者様</p>
+                <p class="lang-zh">经营观光设施、活动项目、交通服务等的企业</p>
             </div>
             
             <div class="target-card fade-in">
-                <h3 data-lang="ja">地域観光推進組織</h3>
-                <h3 data-lang="zh">地域观光推广组织</h3>
-                <p data-lang="ja">DMO、観光協会等の地域プロモーションを担う組織様</p>
-                <p data-lang="zh">DMO、观光协会等负责区域推广的组织</p>
+                <h3 class="lang-ja">地域観光推進組織</h3>
+                <h3 class="lang-zh">地域观光推广组织</h3>
+                <p class="lang-ja">DMO、観光協会等の地域プロモーションを担う組織様</p>
+                <p class="lang-zh">DMO、观光协会等负责区域推广的组织</p>
             </div>
         </div>
     </section>
@@ -700,37 +931,37 @@
     <!-- Contact Section -->
     <section id="contact">
         <p class="section-subtitle">CONTACT</p>
-        <h2 data-lang="ja">お問い合わせ</h2>
-        <h2 data-lang="zh">联系我们</h2>
+        <h2 class="lang-ja">お問い合わせ</h2>
+        <h2 class="lang-zh">联系我们</h2>
         
         <div class="contact-container fade-in">
             <div class="contact-info">
                 <div class="contact-item">
-                    <h3 data-lang="ja">電話</h3>
-                    <h3 data-lang="zh">电话</h3>
+                    <h3 class="lang-ja">電話</h3>
+                    <h3 class="lang-zh">电话</h3>
                     <p><a href="tel:+81-080-7632-1333">+81-080-7632-1333</a></p>
                 </div>
                 
                 <div class="contact-item">
-                    <h3 data-lang="ja">メール</h3>
-                    <h3 data-lang="zh">邮箱</h3>
+                    <h3 class="lang-ja">メール</h3>
+                    <h3 class="lang-zh">邮箱</h3>
                     <p><a href="mailto:livetta1biz@gmail.com">livetta1biz@gmail.com</a></p>
                 </div>
                 
                 <div class="contact-item">
-                    <h3 data-lang="ja">営業時間</h3>
-                    <h3 data-lang="zh">营业时间</h3>
-                    <p data-lang="ja">平日 10:00 - 18:00<br>（土日祝日休業）</p>
-                    <p data-lang="zh">工作日 10:00 - 18:00<br>（周末及节假日休息）</p>
+                    <h3 class="lang-ja">営業時間</h3>
+                    <h3 class="lang-zh">营业时间</h3>
+                    <p class="lang-ja">平日 10:00 - 18:00<br>（土日祝日休業）</p>
+                    <p class="lang-zh">工作日 10:00 - 18:00<br>（周末及节假日休息）</p>
                 </div>
                 
                 <div class="contact-item">
-                    <h3 data-lang="ja">所在地</h3>
-                    <h3 data-lang="zh">地址</h3>
+                    <h3 class="lang-ja">所在地</h3>
+                    <h3 class="lang-zh">地址</h3>
                     <p>
                         〒231-0045<br>
-                        <span data-lang="ja">神奈川県横浜市中区伊勢佐木町2-66-604</span>
-                        <span data-lang="zh">神奈川县横滨市中区伊势佐木町2-66-604</span>
+                        <span class="lang-ja">神奈川県横浜市中区伊勢佐木町2-66-604</span>
+                        <span class="lang-zh">神奈川县横滨市中区伊势佐木町2-66-604</span>
                     </p>
                 </div>
             </div>
