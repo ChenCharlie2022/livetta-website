@@ -99,151 +99,6 @@
             50% { opacity: 0.5; transform: scale(1.2); }
         }
 
-        /* ========== Campaign Section ========== */
-        #campaign {
-            margin-top: 80px;
-            padding: 0;
-            max-width: 100%;
-            background: linear-gradient(135deg, #1a1508 0%, var(--dark-bg) 50%, #0d0a05 100%);
-            border-bottom: 2px solid var(--gold);
-        }
-
-        .campaign-header {
-            background: linear-gradient(90deg, var(--gold) 0%, var(--dark-gold) 100%);
-            padding: 0.8rem 2rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 1rem;
-        }
-
-        .campaign-badge {
-            background: var(--dark-bg);
-            color: var(--gold);
-            padding: 0.3rem 1rem;
-            font-size: 0.75rem;
-            font-weight: 700;
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
-        }
-
-        .campaign-header-title {
-            font-size: 1rem;
-            color: var(--dark-bg);
-            letter-spacing: 0.1em;
-            font-weight: 500;
-        }
-
-        .campaign-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 3rem;
-        }
-
-        .campaign-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .campaign-card {
-            background: linear-gradient(145deg, rgba(26, 26, 26, 0.95) 0%, rgba(42, 42, 42, 0.9) 100%);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            border-radius: 4px;
-            overflow: hidden;
-        }
-
-        .campaign-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--gold);
-            box-shadow: 0 15px 40px rgba(212, 175, 55, 0.2);
-            transition: all 0.4s ease;
-        }
-
-        .campaign-card-header {
-            padding: 1.5rem 1.5rem 1rem;
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .campaign-type {
-            background: var(--gold);
-            color: var(--dark-bg);
-            padding: 0.25rem 0.75rem;
-            font-size: 0.7rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-        }
-
-        .campaign-period {
-            font-size: 0.8rem;
-            color: var(--text-gold);
-            letter-spacing: 0.05em;
-        }
-
-        .campaign-card-body {
-            padding: 0 1.5rem 1.5rem;
-        }
-
-        .campaign-card h3 {
-            font-size: 1.3rem;
-            color: var(--gold);
-            margin-bottom: 0.8rem;
-            letter-spacing: 0.05em;
-            font-weight: 500;
-            line-height: 1.4;
-        }
-
-        .campaign-card p {
-            font-size: 0.95rem;
-            color: var(--text-light);
-            line-height: 1.7;
-            margin-bottom: 1rem;
-        }
-
-        .campaign-highlight {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: rgba(212, 175, 55, 0.15);
-            border: 1px solid rgba(212, 175, 55, 0.3);
-            padding: 0.5rem 1rem;
-            font-size: 1rem;
-            color: var(--gold);
-            font-weight: 600;
-            letter-spacing: 0.05em;
-        }
-
-        .campaign-cta {
-            display: block;
-            background: linear-gradient(135deg, var(--gold) 0%, var(--dark-gold) 100%);
-            color: var(--dark-bg);
-            text-align: center;
-            padding: 1rem;
-            font-size: 0.9rem;
-            font-weight: 500;
-            letter-spacing: 0.1em;
-            text-decoration: none;
-            margin-top: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .campaign-cta:hover { opacity: 0.9; }
-
-        .campaign-footer {
-            text-align: center;
-            padding: 1.5rem;
-            border-top: 1px solid rgba(212, 175, 55, 0.2);
-        }
-
-        .campaign-footer p {
-            font-size: 0.85rem;
-            color: rgba(255, 255, 255, 0.6);
-        }
-
         .hero {
             height: 100vh;
             display: flex;
@@ -508,11 +363,6 @@
             section { padding: 5rem 1.5rem; }
             .services-grid, .strengths-container, .target-grid { grid-template-columns: 1fr; }
             .contact-container { padding: 2.5rem 1.5rem; }
-
-            #campaign { margin-top: 140px; }
-            .campaign-content { padding: 2rem 1.5rem; }
-            .campaign-grid { grid-template-columns: 1fr; }
-            .campaign-header { flex-direction: column; gap: 0.5rem; }
         }
 
         .fade-in {
@@ -529,7 +379,6 @@
         <div class="nav-container">
             <a href="#" class="logo">LIVETTA</a>
             <ul class="nav-links">
-                <li><a href="#campaign" class="lang-ja" style="color:var(--gold);position:relative;">キャンペーン<span style="position:absolute;top:-2px;right:-8px;width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse 1.5s ease-in-out infinite;display:block;"></span></a><a href="#campaign" class="lang-zh" style="color:var(--gold);position:relative;">近期活动<span style="position:absolute;top:-2px;right:-8px;width:6px;height:6px;background:var(--gold);border-radius:50%;animation:pulse 1.5s ease-in-out infinite;display:block;"></span></a></li>
                 <li><a href="#about" class="lang-ja">会社概要</a><a href="#about" class="lang-zh">公司简介</a></li>
                 <li><a href="#services" class="lang-ja">サービス</a><a href="#services" class="lang-zh">服务内容</a></li>
                 <li><a href="#strengths" class="lang-ja">強み</a><a href="#strengths" class="lang-zh">优势特点</a></li>
@@ -542,58 +391,6 @@
             </ul>
         </div>
     </nav>
-
-    <!-- Campaign Section -->
-    <section id="campaign">
-        <div class="campaign-header">
-            <span class="campaign-badge lang-ja">NEW</span>
-            <span class="campaign-badge lang-zh">最新</span>
-            <span class="campaign-header-title lang-ja">最新のキャンペーン</span>
-            <span class="campaign-header-title lang-zh">最新活动资讯</span>
-        </div>
-        <div class="campaign-content">
-            <div class="campaign-grid">
-                <div class="campaign-card">
-                    <div class="campaign-card-header">
-                        <span class="campaign-type lang-ja">契約者限定・抽選10名</span>
-                        <span class="campaign-type lang-zh">限签约客户·抽选10名</span>
-                        <span class="campaign-period">2026.06.04 - 2026.06.30</span>
-                    </div>
-                    <div class="campaign-card-body">
-                        <h3 class="lang-ja">契約記念デジタルギフトプレゼントキャンペーン</h3>
-                        <h3 class="lang-zh">签约纪念数字礼品赠送活动</h3>
-
-                        <p class="lang-ja"><strong>【対象者】</strong><br>
-                        2026年6月4日〜6月30日の期間中に当社とご契約いただいたクライアント様</p>
-                        <p class="lang-zh"><strong>【对象】</strong><br>
-                        2026年6月4日至6月30日期间与本公司签约的客户</p>
-
-                        <p class="lang-ja"><strong>【内容】</strong><br>
-                        対象期間中にご契約いただいたクライアント様の中から、抽選で10名様に5万円相当のデジタルギフトカードをプレゼントいたします。</p>
-                        <p class="lang-zh"><strong>【内容】</strong><br>
-                        在活动期间内签约的客户中，通过抽选方式选出10名，每人赠送价值5万日元的数字礼品卡。</p>
-
-                        <p class="lang-ja"><strong>【当選発表】</strong><br>
-                        2026年7月上旬にご登録のメールアドレスへご連絡いたします。</p>
-                        <p class="lang-zh"><strong>【获奖公告】</strong><br>
-                        将于2026年7月上旬通过注册邮箱通知获奖者。</p>
-
-                        <div class="campaign-highlight">
-                            <span>✦</span>
-                            <span class="lang-ja">抽選10名様に5万円相当デジタルギフトカード</span>
-                            <span class="lang-zh">抽选10名，各赠5万日元数字礼品卡</span>
-                        </div>
-                        <a href="#contact" class="campaign-cta lang-ja">お問い合わせ・ご契約はこちら →</a>
-                        <a href="#contact" class="campaign-cta lang-zh">咨询与签约请点此 →</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="campaign-footer">
-            <p class="lang-ja">※ キャンペーン内容は予告なく変更・終了する場合がございます</p>
-            <p class="lang-zh">※ 活动内容可能会在不另行通知的情况下变更或结束</p>
-        </div>
-    </section>
 
     <section class="hero">
         <div class="hero-content">
